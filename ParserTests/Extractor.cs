@@ -22,7 +22,7 @@ using ICSharpCode.SharpZipLib.GZip;
 using ICSharpCode.SharpZipLib.Tar;
 using ICSharpCode.SharpZipLib.Zip;
 
-namespace ParserTest {
+namespace ParserTests {
 	public static class Extractor {
 		public static void Unzip(string path) {
 			var dirPath = Path.GetDirectoryName(path);

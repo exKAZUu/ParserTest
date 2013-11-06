@@ -19,7 +19,7 @@
 using System.IO;
 using System.Net;
 
-namespace ParserTest {
+namespace ParserTests {
 	public static class Downloader {
 		public static void Download(string url, string outPath) {
 			using (var client = new WebClient()) {

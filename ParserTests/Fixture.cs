@@ -16,11 +16,13 @@
 
 #endregion
 
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace ParserTest {
+namespace ParserTests {
 	public static class Fixture {
 		public static string FixturePath;
 
@@ -69,16 +71,28 @@ namespace ParserTest {
 			return new DirectoryInfo(GetFixturePath(subNames));
 		}
 
-		public static string GetInputPath(string name) {
-			return GetFixturePath(name, "input");
+		public static string GetInputPath(string languageName, params string[] subNames) {
+			var list = new List<string> { languageName, "input" };
+			list.AddRange(subNames);
+			return GetFixturePath(list.ToArray());
 		}
 
-		public static string GetXmlExpectationPath(string lang, string relativePath) {
-			return GetFixturePath(lang, "xmlexpectation", relativePath);
+		public static string GetXmlExpectationPath(string languageName, params string[] subNames) {
+			var list = new List<string> { languageName, "xmlexpectation" };
+			list.AddRange(subNames);
+			return GetFixturePath(list.ToArray());
 		}
 
-		public static string GetOutputFilePath(string lang, string relativePath) {
-			return Path.Combine(GetFixturePathCleaning("output"), lang, relativePath);
+		public static string GetOutputFilePath(params string[] subNames) {
+			return subNames.Aggregate(GetFixturePathCleaning("output"), Path.Combine);
+		}
+
+		public static string GetOutputDirPath(params string[] subNames) {
+			return subNames.Aggregate(GetFixturePathCleaning("output"), Path.Combine);
+		}
+
+		public static string GetFailedInputPath(string java) {
+			throw new System.NotImplementedException();
 		}
 	}
 }
