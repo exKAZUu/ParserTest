@@ -16,25 +16,34 @@
 
 #endregion
 
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 
 namespace ParserTests {
 	public static class Fixture {
-		public static string FixturePath;
+		private static string _fixturePath;
 
-		static Fixture() {
-			var path = Assembly.GetEntryAssembly().Location;
-			do {
+		public static string FixturePath {
+			get { return _fixturePath ?? (_fixturePath = GetFixturePath()); }
+		}
+
+		private static string FindParserTests(string dirPath) {
+			var ret = Directory.GetFiles(dirPath, "ParserTests.sln", SearchOption.AllDirectories);
+			return ret.Length == 0 ? null : ret[0];
+		}
+
+		private static string GetFixturePath() {
+			var path = Environment.CurrentDirectory;
+			string solutionPath;
+			while ((solutionPath = FindParserTests(path)) == null) {
 				path = Path.GetDirectoryName(path);
 				if (path == null) {
 					throw new IOException("'fixture' directory is not found.");
 				}
-			} while (!Directory.Exists(Path.Combine(path, "fixture")));
-			FixturePath = Path.Combine(path, "fixture");
+			}
+			return Path.Combine(Path.GetDirectoryName(solutionPath), "fixture");
 		}
 
 		public static string GetFixturePathCleaning(params string[] subNames) {
@@ -91,8 +100,9 @@ namespace ParserTests {
 			return subNames.Aggregate(GetFixturePathCleaning("output"), Path.Combine);
 		}
 
-		public static string GetFailedInputPath(string java) {
-			throw new System.NotImplementedException();
+		public static string GetFailedInputPath(string languageName) {
+			var list = new List<string> { languageName, "failed_input" };
+			return GetFixturePath(list.ToArray());
 		}
 	}
 }
