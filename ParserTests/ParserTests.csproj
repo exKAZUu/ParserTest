@@ -36,6 +36,12 @@
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\..\packages\ICSharpCode.SharpZipLib.dll.0.85.4.369\lib\net20\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
+    <Reference Include="Paraiba">
+      <HintPath>..\..\packages\Paraiba.1.1.0.90\lib\net40\Paraiba.dll</HintPath>
+    </Reference>
+    <Reference Include="Paraiba.Experiment">
+      <HintPath>..\..\packages\Paraiba.Experiment.1.1.0.42\lib\net40\Paraiba.Experiment.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
