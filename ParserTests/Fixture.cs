@@ -26,18 +26,18 @@ namespace ParserTests {
 		private static string _fixturePath;
 
 		public static string FixturePath {
-			get { return _fixturePath ?? (_fixturePath = GetFixturePath()); }
+			get { return _fixturePath ?? (_fixturePath = GetPath()); }
 		}
 
-		private static string FindParserTests(string dirPath) {
+		private static string FindParserTestsSolutionFile(string dirPath) {
 			var ret = Directory.GetFiles(dirPath, "ParserTests.sln", SearchOption.AllDirectories);
 			return ret.Length == 0 ? null : ret[0];
 		}
 
-		private static string GetFixturePath() {
+		private static string GetPath() {
 			var path = Environment.CurrentDirectory;
 			string solutionPath;
-			while ((solutionPath = FindParserTests(path)) == null) {
+			while ((solutionPath = FindParserTestsSolutionFile(path)) == null) {
 				path = Path.GetDirectoryName(path);
 				if (path == null) {
 					throw new IOException("'fixture' directory is not found.");
@@ -46,7 +46,30 @@ namespace ParserTests {
 			return Path.Combine(Path.GetDirectoryName(solutionPath), "fixture");
 		}
 
-		public static string GetFixturePathCleaning(params string[] subNames) {
+		private static string GetPath(params string[] subNames) {
+			return Path.GetFullPath(subNames.Aggregate(FixturePath, Path.Combine));
+		}
+
+		private static string GetPath(string language, string type, IEnumerable<string> subNames) {
+			return Path.GetFullPath(
+					subNames.Aggregate(Path.Combine(FixturePath, language, type), Path.Combine));
+		}
+
+		public static FileInfo GetFile(params string[] subNames) {
+			return new FileInfo(GetPath(subNames));
+		}
+
+		public static DirectoryInfo GetDirectory(params string[] subNames) {
+			return new DirectoryInfo(GetPath(subNames));
+		}
+
+		public static string InitializeDirectory(params string[] subNames) {
+			var path = CleanUpDirectory(subNames);
+			Directory.CreateDirectory(path);
+			return path;
+		}
+
+		public static string CleanUpDirectory(params string[] subNames) {
 			var path = Path.GetFullPath(subNames.Aggregate(FixturePath, Path.Combine));
 			if (Directory.Exists(path)) {
 				var dirPaths = Directory.EnumerateDirectories(
@@ -60,49 +83,28 @@ namespace ParserTests {
 					File.Delete(filePath);
 				}
 			}
-			Directory.CreateDirectory(path);
 			return path;
 		}
 
-		public static string GetFixtureDirectoryCleaning(params string[] subNames) {
-			return GetFixturePathCleaning(subNames);
+		public static string GetInputCodePath(string languageName, params string[] subNames) {
+			return GetPath(languageName, "input_code", subNames);
 		}
 
-		public static string GetFixturePath(params string[] subNames) {
-			return Path.GetFullPath(subNames.Aggregate(FixturePath, Path.Combine));
-		}
-
-		public static FileInfo GetFixtureFile(params string[] subNames) {
-			return new FileInfo(GetFixturePath(subNames));
-		}
-
-		public static DirectoryInfo GetFixtureDirectory(params string[] subNames) {
-			return new DirectoryInfo(GetFixturePath(subNames));
-		}
-
-		public static string GetInputPath(string languageName, params string[] subNames) {
-			var list = new List<string> { languageName, "input" };
-			list.AddRange(subNames);
-			return GetFixturePath(list.ToArray());
-		}
-
-		public static string GetXmlExpectationPath(string languageName, params string[] subNames) {
-			var list = new List<string> { languageName, "xmlexpectation" };
-			list.AddRange(subNames);
-			return GetFixturePath(list.ToArray());
+		public static string GetExpectedXmlPath(string languageName, params string[] subNames) {
+			return GetPath(languageName, "xmlexpectation", subNames);
 		}
 
 		public static string GetOutputFilePath(params string[] subNames) {
-			return subNames.Aggregate(GetFixturePathCleaning("output"), Path.Combine);
+			return subNames.Aggregate(InitializeDirectory("output"), Path.Combine);
 		}
 
 		public static string GetOutputDirPath(params string[] subNames) {
-			return subNames.Aggregate(GetFixturePathCleaning("output"), Path.Combine);
+			return subNames.Aggregate(InitializeDirectory("output"), Path.Combine);
 		}
 
 		public static string GetFailedInputPath(string languageName) {
 			var list = new List<string> { languageName, "failed_input" };
-			return GetFixturePath(list.ToArray());
+			return GetPath(list.ToArray());
 		}
 	}
 }
