@@ -103,7 +103,7 @@ namespace ParserTests {
 		}
 
 		public static string GetFailedInputPath(string languageName) {
-			var list = new List<string> { languageName, "failed_input" };
+			var list = new List<string> { languageName, "input_failed_src" };
 			return GetPath(list.ToArray());
 		}
 	}
