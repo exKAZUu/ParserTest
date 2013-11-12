@@ -106,5 +106,11 @@ namespace ParserTests {
 			var list = new List<string> { languageName, "input_failed_src" };
 			return GetPath(list.ToArray());
 		}
-	}
+
+        public static string GetInputProjectPath(string languageName)
+        {
+            var list = new List<string> { languageName, "input_project" };
+            return GetPath(list.ToArray());
+        }
+    }
 }

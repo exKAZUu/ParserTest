@@ -1,0 +1,3 @@
+[submodule "fixture/Java/input_project/presto"]
+	path = fixture/Java/input_project/presto
+	url = https://github.com/facebook/presto.git
