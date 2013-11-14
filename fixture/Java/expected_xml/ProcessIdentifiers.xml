@@ -1,0 +1,63 @@
+﻿<compilationUnit>
+  <typeDeclaration>
+    <classOrInterfaceDeclaration>
+      <classDeclaration>
+        <normalClassDeclaration>
+          <modifiers />
+          <CLASS>
+            <TOKEN startline="1" startpos="0" endline="1" endpos="4">class</TOKEN>
+          </CLASS>
+          <IDENTIFIER>
+            <WS hidden=" " startline="1" startpos="5" endline="1" endpos="5" />
+            <TOKEN startline="1" startpos="6" endline="1" endpos="6">K</TOKEN>
+          </IDENTIFIER>
+          <classBody>
+            <LBRACE>
+              <WS hidden=" " startline="1" startpos="7" endline="1" endpos="7" />
+              <TOKEN startline="1" startpos="8" endline="1" endpos="8">{</TOKEN>
+            </LBRACE>
+            <classBodyDeclaration>
+              <memberDecl>
+                <methodDeclaration>
+                  <modifiers />
+                  <VOID>
+                    <WS hidden=" " startline="1" startpos="9" endline="1" endpos="9" />
+                    <TOKEN startline="1" startpos="10" endline="1" endpos="13">void</TOKEN>
+                  </VOID>
+                  <IDENTIFIER>
+                    <WS hidden=" " startline="1" startpos="14" endline="1" endpos="14" />
+                    <TOKEN startline="1" startpos="15" endline="1" endpos="15">m</TOKEN>
+                  </IDENTIFIER>
+                  <formalParameters>
+                    <LPAREN>
+                      <TOKEN startline="1" startpos="16" endline="1" endpos="16">(</TOKEN>
+                    </LPAREN>
+                    <RPAREN>
+                      <TOKEN startline="1" startpos="17" endline="1" endpos="17">)</TOKEN>
+                    </RPAREN>
+                  </formalParameters>
+                  <block>
+                    <LBRACE>
+                      <WS hidden=" " startline="1" startpos="18" endline="1" endpos="18" />
+                      <TOKEN startline="1" startpos="19" endline="1" endpos="19">{</TOKEN>
+                    </LBRACE>
+                    <RBRACE>
+                      <TOKEN startline="1" startpos="20" endline="1" endpos="20">}</TOKEN>
+                    </RBRACE>
+                  </block>
+                </methodDeclaration>
+              </memberDecl>
+            </classBodyDeclaration>
+            <RBRACE>
+              <WS hidden=" " startline="1" startpos="21" endline="1" endpos="21" />
+              <TOKEN startline="1" startpos="22" endline="1" endpos="22">}</TOKEN>
+            </RBRACE>
+          </classBody>
+        </normalClassDeclaration>
+      </classDeclaration>
+    </classOrInterfaceDeclaration>
+  </typeDeclaration>
+  <EOF>
+    <TOKEN startline="1" startpos="23" endline="1" endpos="22"></TOKEN>
+  </EOF>
+</compilationUnit>
