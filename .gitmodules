@@ -3,7 +3,7 @@
 	url = https://github.com/facebook/presto.git
 [submodule "fixture/Java/input_project/pageobjectgenerator"]
 	path = fixture/Java/input_project/pageobjectgenerator
-	url = https://code.google.com/p/pageobjectgenerator/
+	url = https://exKAZUu@code.google.com/p/pageobjectgenerator/
 [submodule "fixture/Java/input_project/storm"]
 	path = fixture/Java/input_project/storm
 	url = https://github.com/nathanmarz/storm.git
