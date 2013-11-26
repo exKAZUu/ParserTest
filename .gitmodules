@@ -10,3 +10,12 @@
 [submodule "fixture/JavaScript/input_project/kraken-js"]
 	path = fixture/JavaScript/input_project/kraken-js
 	url = https://github.com/paypal/kraken-js.git
+[submodule "fixture/JavaScript/input_project/cheet.js"]
+	path = fixture/JavaScript/input_project/cheet.js
+	url = https://github.com/namuol/cheet.js.git
+[submodule "fixture/JavaScript/input_project/ionic"]
+	path = fixture/JavaScript/input_project/ionic
+	url = https://github.com/driftyco/ionic.git
+[submodule "fixture/JavaScript/input_project/reportr"]
+	path = fixture/JavaScript/input_project/reportr
+	url = https://github.com/SamyPesse/reportr.git
