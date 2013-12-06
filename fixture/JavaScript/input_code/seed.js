@@ -7,6 +7,7 @@ for (var i = 0; i < args.length; i++) {
 	}
 }
 
+TEST:
 while (args.length == 0) {
 	while (args.length < 0) {
 		i++;
@@ -15,6 +16,7 @@ while (args.length == 0) {
 
 do {
 	do {
+TEST2:
 		i = 0;
 	} while (args.length < 0);
 } while (args.length == 0);
@@ -22,5 +24,12 @@ do {
 if (args.length < 0) {
 	if (args.length == 0) {
 		func();
+		;
 	}
 }
+	
+{}
+{ i = i - 1; }
+;
+i = i + 1;
+func();
