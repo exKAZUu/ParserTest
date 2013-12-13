@@ -2,30 +2,27 @@ console.log(args != null);
 
 for (var i = 0; i < args.length; i++) {
 	console.log(1);
-	for (var j = 0; args.length == 0; j++) {
-		console.log("abc");
+	for (; true; ) {
 	}
 }
 
 TEST:
 while (args.length == 0) {
-	while (args.length < 0) {
-		i++;
+	while (true) {
 	}
 }
 
 do {
-	do {
 TEST2:
-		i = 0;
-	} while (args.length < 0);
+	do {
+	} while (true);
 } while (args.length == 0);
 
 if (args.length < 0) {
-	if (args.length == 0) {
-		func();
-		;
+	if (true) {
 	}
+	func();
+	;
 }
 	
 {}
