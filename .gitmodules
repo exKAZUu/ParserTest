@@ -19,3 +19,9 @@
 [submodule "fixture/JavaScript/input_project/reportr"]
 	path = fixture/JavaScript/input_project/reportr
 	url = https://github.com/SamyPesse/reportr.git
+[submodule "fixture/CSharp/input_project/SignalR"]
+	path = fixture/CSharp/input_project/SignalR
+	url = https://github.com/SignalR/SignalR.git
+[submodule "fixture/CSharp/input_project/NuGetGallery"]
+	path = fixture/CSharp/input_project/NuGetGallery
+	url = https://github.com/NuGet/NuGetGallery.git
