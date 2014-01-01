@@ -25,3 +25,33 @@
 [submodule "fixture/CSharp/input_project/NuGetGallery"]
 	path = fixture/CSharp/input_project/NuGetGallery
 	url = https://github.com/NuGet/NuGetGallery.git
+[submodule "fixture/Lua/input_project/moonscript"]
+	path = fixture/Lua/input_project/moonscript
+	url = https://github.com/leafo/moonscript.git
+[submodule "fixture/Lua/input_project/luakit"]
+	path = fixture/Lua/input_project/luakit
+	url = https://github.com/mason-larobina/luakit.git
+[submodule "fixture/Lua/input_project/lsyncd"]
+	path = fixture/Lua/input_project/lsyncd
+	url = https://github.com/axkibe/lsyncd.git
+[submodule "fixture/Php/input_project/cockpit"]
+	path = fixture/Php/input_project/cockpit
+	url = https://github.com/aheinze/cockpit.git
+[submodule "fixture/Php/input_project/sovereign"]
+	path = fixture/Php/input_project/sovereign
+	url = https://github.com/al3x/sovereign.git
+[submodule "fixture/Php/input_project/composer-service"]
+	path = fixture/Php/input_project/composer-service
+	url = https://github.com/pborreli/composer-service.git
+[submodule "fixture/Php/input_project/php-mvc"]
+	path = fixture/Php/input_project/php-mvc
+	url = https://github.com/panique/php-mvc.git
+[submodule "fixture/C/input_project/How-to-Make-a-Computer-Operating-System"]
+	path = fixture/C/input_project/How-to-Make-a-Computer-Operating-System
+	url = https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System.git
+[submodule "fixture/C/input_project/Craft"]
+	path = fixture/C/input_project/Craft
+	url = https://github.com/fogleman/Craft.git
+[submodule "fixture/C/input_project/cphalcon"]
+	path = fixture/C/input_project/cphalcon
+	url = https://github.com/phalcon/cphalcon.git
