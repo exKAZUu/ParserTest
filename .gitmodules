@@ -25,9 +25,6 @@
 [submodule "fixture/CSharp/input_project/NuGetGallery"]
 	path = fixture/CSharp/input_project/NuGetGallery
 	url = https://github.com/NuGet/NuGetGallery.git
-[submodule "fixture/Lua/input_project/moonscript"]
-	path = fixture/Lua/input_project/moonscript
-	url = https://github.com/leafo/moonscript.git
 [submodule "fixture/Lua/input_project/luakit"]
 	path = fixture/Lua/input_project/luakit
 	url = https://github.com/mason-larobina/luakit.git
@@ -55,3 +52,36 @@
 [submodule "fixture/C/input_project/cphalcon"]
 	path = fixture/C/input_project/cphalcon
 	url = https://github.com/phalcon/cphalcon.git
+[submodule "fixture/Lua/input_project/DarkRP"]
+	path = fixture/Lua/input_project/DarkRP
+	url = https://github.com/FPtje/DarkRP.git
+[submodule "fixture/Lua/input_project/koreader"]
+	path = fixture/Lua/input_project/koreader
+	url = https://github.com/koreader/koreader.git
+[submodule "fixture/Lua/input_project/lapis"]
+	path = fixture/Lua/input_project/lapis
+	url = https://github.com/leafo/lapis.git
+[submodule "fixture/Lua/input_project/ZeroBraneStudio"]
+	path = fixture/Lua/input_project/ZeroBraneStudio
+	url = https://github.com/pkulchenko/ZeroBraneStudio.git
+[submodule "fixture/Lua/input_project/luafun"]
+	path = fixture/Lua/input_project/luafun
+	url = https://github.com/rtsisyk/luafun.git
+[submodule "fixture/Lua/input_project/middleclass"]
+	path = fixture/Lua/input_project/middleclass
+	url = https://github.com/kikito/middleclass.git
+[submodule "fixture/Lua/input_project/pacpac"]
+	path = fixture/Lua/input_project/pacpac
+	url = https://github.com/tylerneylon/pacpac.git
+[submodule "fixture/Lua/input_project/LuaNode"]
+	path = fixture/Lua/input_project/LuaNode
+	url = https://github.com/ignacio/LuaNode.git
+[submodule "fixture/Lua/input_project/Tir"]
+	path = fixture/Lua/input_project/Tir
+	url = https://github.com/zedshaw/Tir.git
+[submodule "fixture/Lua/input_project/vlsub"]
+	path = fixture/Lua/input_project/vlsub
+	url = https://github.com/exebetche/vlsub.git
+[submodule "fixture/Lua/input_project/Penlight"]
+	path = fixture/Lua/input_project/Penlight
+	url = https://github.com/stevedonovan/Penlight.git
