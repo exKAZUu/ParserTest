@@ -85,3 +85,6 @@
 [submodule "fixture/Lua/input_project/Penlight"]
 	path = fixture/Lua/input_project/Penlight
 	url = https://github.com/stevedonovan/Penlight.git
+[submodule "fixture/GarryLua/input_project/DarkRP"]
+	path = fixture/GarryLua/input_project/DarkRP
+	url = https://github.com/FPtje/DarkRP.git
