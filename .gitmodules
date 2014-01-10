@@ -16,9 +16,6 @@
 [submodule "fixture/JavaScript/input_project/ionic"]
 	path = fixture/JavaScript/input_project/ionic
 	url = https://github.com/driftyco/ionic.git
-[submodule "fixture/JavaScript/input_project/reportr"]
-	path = fixture/JavaScript/input_project/reportr
-	url = https://github.com/SamyPesse/reportr.git
 [submodule "fixture/CSharp/input_project/SignalR"]
 	path = fixture/CSharp/input_project/SignalR
 	url = https://github.com/SignalR/SignalR.git
@@ -88,3 +85,6 @@
 [submodule "fixture/GarryLua/input_project/DarkRP"]
 	path = fixture/GarryLua/input_project/DarkRP
 	url = https://github.com/FPtje/DarkRP.git
+[submodule "fixture/JavaScript/input_project/gulp"]
+	path = fixture/JavaScript/input_project/gulp
+	url = https://github.com/gulpjs/gulp.git
