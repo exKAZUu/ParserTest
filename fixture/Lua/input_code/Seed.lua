@@ -22,3 +22,8 @@ for i = 0, 1, 1 do
 	for j = 2, 3, 4 do
 	end
 end
+
+;
+::Label::
+i = 0
+
