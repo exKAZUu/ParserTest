@@ -40,9 +40,6 @@
 [submodule "fixture/Php/input_project/php-mvc"]
 	path = fixture/Php/input_project/php-mvc
 	url = https://github.com/panique/php-mvc.git
-[submodule "fixture/C/input_project/How-to-Make-a-Computer-Operating-System"]
-	path = fixture/C/input_project/How-to-Make-a-Computer-Operating-System
-	url = https://github.com/SamyPesse/How-to-Make-a-Computer-Operating-System.git
 [submodule "fixture/C/input_project/Craft"]
 	path = fixture/C/input_project/Craft
 	url = https://github.com/fogleman/Craft.git
@@ -88,3 +85,6 @@
 [submodule "fixture/JavaScript/input_project/gulp"]
 	path = fixture/JavaScript/input_project/gulp
 	url = https://github.com/gulpjs/gulp.git
+[submodule "fixture/JavaScript/input_project/clmtrackr"]
+	path = fixture/JavaScript/input_project/clmtrackr
+	url = https://github.com/auduno/clmtrackr.git
