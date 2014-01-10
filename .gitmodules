@@ -103,3 +103,15 @@
 [submodule "fixture/CSharp/input_project/MediaPortal-1"]
 	path = fixture/CSharp/input_project/MediaPortal-1
 	url = https://github.com/MediaPortal/MediaPortal-1.git
+[submodule "fixture/CSharp/input_project/Newtonsoft.Json"]
+	path = fixture/CSharp/input_project/Newtonsoft.Json
+	url = https://github.com/JamesNK/Newtonsoft.Json.git
+[submodule "fixture/CSharp/input_project/ServiceStack"]
+	path = fixture/CSharp/input_project/ServiceStack
+	url = https://github.com/ServiceStack/ServiceStack.git
+[submodule "fixture/CSharp/input_project/Nancy"]
+	path = fixture/CSharp/input_project/Nancy
+	url = https://github.com/NancyFx/Nancy.git
+[submodule "fixture/CSharp/input_project/ravendb"]
+	path = fixture/CSharp/input_project/ravendb
+	url = https://github.com/ravendb/ravendb.git
