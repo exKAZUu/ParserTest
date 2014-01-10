@@ -88,3 +88,18 @@
 [submodule "fixture/JavaScript/input_project/clmtrackr"]
 	path = fixture/JavaScript/input_project/clmtrackr
 	url = https://github.com/auduno/clmtrackr.git
+[submodule "fixture/CSharp/input_project/MechJeb2"]
+	path = fixture/CSharp/input_project/MechJeb2
+	url = https://github.com/MuMech/MechJeb2.git
+[submodule "fixture/CSharp/input_project/MonoTouch.Dialog"]
+	path = fixture/CSharp/input_project/MonoTouch.Dialog
+	url = https://github.com/migueldeicaza/MonoTouch.Dialog.git
+[submodule "fixture/CSharp/input_project/StarryboundServer"]
+	path = fixture/CSharp/input_project/StarryboundServer
+	url = https://github.com/AvilanceLtd/StarryboundServer.git
+[submodule "fixture/CSharp/input_project/moq4"]
+	path = fixture/CSharp/input_project/moq4
+	url = https://github.com/Moq/moq4.git
+[submodule "fixture/CSharp/input_project/MediaPortal-1"]
+	path = fixture/CSharp/input_project/MediaPortal-1
+	url = https://github.com/MediaPortal/MediaPortal-1.git
