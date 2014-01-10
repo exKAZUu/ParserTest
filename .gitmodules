@@ -85,6 +85,3 @@
 [submodule "fixture/JavaScript/input_project/gulp"]
 	path = fixture/JavaScript/input_project/gulp
 	url = https://github.com/gulpjs/gulp.git
-[submodule "fixture/JavaScript/input_project/clmtrackr"]
-	path = fixture/JavaScript/input_project/clmtrackr
-	url = https://github.com/auduno/clmtrackr.git
