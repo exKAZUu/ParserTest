@@ -115,3 +115,6 @@
 [submodule "fixture/CSharp/input_project/ravendb"]
 	path = fixture/CSharp/input_project/ravendb
 	url = https://github.com/ravendb/ravendb.git
+[submodule "fixture/C/input_project/greatest"]
+	path = fixture/C/input_project/greatest
+	url = https://github.com/silentbicycle/greatest.git
