@@ -7,6 +7,7 @@ public class Test {
             b++;
         }}
         int result;
+        int x = 2;
         LABEL:
           result = a + b * a;
         switch(result){

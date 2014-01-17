@@ -4,16 +4,8 @@ import com.google.common.base.Preconditions;
 
 public class Seed {
 	public static void main(String[] args) {
-		int a = 0;
-		int b, c;
-		class A {
-		}
-		
 		checkArgument(args == null);
-		checkArgument(args == null, "test");
 		Preconditions.checkArgument(args != null);
-		Preconditions.checkArgument(args != null, "test");
-		com.google.common.base.Preconditions.checkArgument(args.length == 0);
 		com.google.common.base.Preconditions.checkArgument(args.length == 0, "test");
 
 		TEST:
