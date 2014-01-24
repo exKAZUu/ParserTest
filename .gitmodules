@@ -118,8 +118,6 @@
 [submodule "fixture/C/input_project/greatest"]
 	path = fixture/C/input_project/greatest
 	url = https://github.com/silentbicycle/greatest.git
-
 [submodule "fixture/C/input_project/FiniteStateEntropy"]
 	path = fixture/C/input_project/FiniteStateEntropy
-
 	url = https://github.com/Cyan4973/FiniteStateEntropy.git
