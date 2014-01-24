@@ -121,3 +121,159 @@
 [submodule "fixture/C/input_project/FiniteStateEntropy"]
 	path = fixture/C/input_project/FiniteStateEntropy
 	url = https://github.com/Cyan4973/FiniteStateEntropy.git
+[submodule "fixture/Php/input_project/flight"]
+	path = fixture/Php/input_project/flight
+	url = https://github.com/mikecao/flight.git
+[submodule "fixture/Php/input_project/YOURLS"]
+	path = fixture/Php/input_project/YOURLS
+	url = https://github.com/YOURLS/YOURLS.git
+[submodule "fixture/Php/input_project/google-api-php-client"]
+	path = fixture/Php/input_project/google-api-php-client
+	url = https://github.com/google/google-api-php-client.git
+[submodule "fixture/Php/input_project/gush"]
+	path = fixture/Php/input_project/gush
+	url = https://github.com/cordoval/gush.git
+[submodule "fixture/Php/input_project/PHPMailer"]
+	path = fixture/Php/input_project/PHPMailer
+	url = https://github.com/PHPMailer/PHPMailer.git
+[submodule "fixture/Php/input_project/phoronix-test-suite"]
+	path = fixture/Php/input_project/phoronix-test-suite
+	url = https://github.com/phoronix-test-suite/phoronix-test-suite.git
+[submodule "fixture/Php/input_project/Mobile-Detect"]
+	path = fixture/Php/input_project/Mobile-Detect
+	url = https://github.com/serbanghita/Mobile-Detect.git
+[submodule "fixture/Php/input_project/rocketeer"]
+	path = fixture/Php/input_project/rocketeer
+	url = https://github.com/Anahkiasen/rocketeer.git
+[submodule "fixture/Php/input_project/psysh"]
+	path = fixture/Php/input_project/psysh
+	url = https://github.com/bobthecow/psysh.git
+[submodule "fixture/JavaScript/input_project/Lychee"]
+	path = fixture/JavaScript/input_project/Lychee
+	url = https://github.com/electerious/Lychee.git
+[submodule "fixture/JavaScript/input_project/browser-sync"]
+	path = fixture/JavaScript/input_project/browser-sync
+	url = https://github.com/shakyShane/browser-sync.git
+[submodule "fixture/Php/input_project/phabricator"]
+	path = fixture/Php/input_project/phabricator
+	url = https://github.com/facebook/phabricator.git
+[submodule "fixture/Php/input_project/core"]
+	path = fixture/Php/input_project/core
+	url = https://github.com/owncloud/core.git
+[submodule "fixture/JavaScript/input_project/fit.js"]
+	path = fixture/JavaScript/input_project/fit.js
+	url = https://github.com/soulwire/fit.js.git
+[submodule "fixture/JavaScript/input_project/jQuery-File-Upload"]
+	path = fixture/JavaScript/input_project/jQuery-File-Upload
+	url = https://github.com/blueimp/jQuery-File-Upload.git
+[submodule "fixture/JavaScript/input_project/bootstrap"]
+	path = fixture/JavaScript/input_project/bootstrap
+	url = https://github.com/angular-ui/bootstrap.git
+[submodule "fixture/Php/input_project/yii"]
+	path = fixture/Php/input_project/yii
+	url = https://github.com/yiisoft/yii.git
+[submodule "fixture/JavaScript/input_project/moment"]
+	path = fixture/JavaScript/input_project/moment
+	url = https://github.com/moment/moment.git
+[submodule "fixture/JavaScript/input_project/node-jscs"]
+	path = fixture/JavaScript/input_project/node-jscs
+	url = https://github.com/mdevils/node-jscs.git
+[submodule "fixture/JavaScript/input_project/Semantic-UI"]
+	path = fixture/JavaScript/input_project/Semantic-UI
+	url = https://github.com/Semantic-Org/Semantic-UI.git
+[submodule "fixture/Php/input_project/zf2"]
+	path = fixture/Php/input_project/zf2
+	url = https://github.com/zendframework/zf2.git
+[submodule "fixture/JavaScript/input_project/orbit.js"]
+	path = fixture/JavaScript/input_project/orbit.js
+	url = https://github.com/cerebris/orbit.js.git
+[submodule "fixture/JavaScript/input_project/my-mind"]
+	path = fixture/JavaScript/input_project/my-mind
+	url = https://github.com/ondras/my-mind.git
+[submodule "fixture/JavaScript/input_project/planetary.js"]
+	path = fixture/JavaScript/input_project/planetary.js
+	url = https://github.com/BinaryMuse/planetary.js.git
+[submodule "fixture/Php/input_project/bedrock"]
+	path = fixture/Php/input_project/bedrock
+	url = https://github.com/roots/bedrock.git
+[submodule "fixture/Php/input_project/composer"]
+	path = fixture/Php/input_project/composer
+	url = https://github.com/composer/composer.git
+[submodule "fixture/Php/input_project/phpdotenv"]
+	path = fixture/Php/input_project/phpdotenv
+	url = https://github.com/vlucas/phpdotenv.git
+[submodule "fixture/Php/input_project/guzzle"]
+	path = fixture/Php/input_project/guzzle
+	url = https://github.com/guzzle/guzzle.git
+[submodule "fixture/JavaScript/input_project/koa"]
+	path = fixture/JavaScript/input_project/koa
+	url = https://github.com/koajs/koa.git
+[submodule "fixture/JavaScript/input_project/react"]
+	path = fixture/JavaScript/input_project/react
+	url = https://github.com/facebook/react.git
+[submodule "fixture/JavaScript/input_project/Ghost"]
+	path = fixture/JavaScript/input_project/Ghost
+	url = https://github.com/TryGhost/Ghost.git
+[submodule "fixture/Php/input_project/piwik"]
+	path = fixture/Php/input_project/piwik
+	url = https://github.com/piwik/piwik.git
+[submodule "fixture/JavaScript/input_project/d3"]
+	path = fixture/JavaScript/input_project/d3
+	url = https://github.com/mbostock/d3.git
+[submodule "fixture/Java/input_project/RxJava"]
+	path = fixture/Java/input_project/RxJava
+	url = https://github.com/Netflix/RxJava.git
+[submodule "fixture/Java/input_project/android-priority-jobqueue"]
+	path = fixture/Java/input_project/android-priority-jobqueue
+	url = https://github.com/path/android-priority-jobqueue.git
+[submodule "fixture/Lua/input_project/gin"]
+	path = fixture/Lua/input_project/gin
+	url = https://github.com/ostinelli/gin.git
+[submodule "fixture/Lua/input_project/ljsyscall"]
+	path = fixture/Lua/input_project/ljsyscall
+	url = https://github.com/justincormack/ljsyscall.git
+[submodule "fixture/JavaScript/input_project/countUp.js"]
+	path = fixture/JavaScript/input_project/countUp.js
+	url = https://github.com/inorganik/countUp.js.git
+[submodule "fixture/JavaScript/input_project/jquery"]
+	path = fixture/JavaScript/input_project/jquery
+	url = https://github.com/jquery/jquery.git
+[submodule "fixture/JavaScript/input_project/codebox"]
+	path = fixture/JavaScript/input_project/codebox
+	url = https://github.com/FriendCode/codebox.git
+[submodule "fixture/Java/input_project/elasticsearch"]
+	path = fixture/Java/input_project/elasticsearch
+	url = https://github.com/elasticsearch/elasticsearch.git
+[submodule "fixture/JavaScript/input_project/angular.js"]
+	path = fixture/JavaScript/input_project/angular.js
+	url = https://github.com/angular/angular.js.git
+[submodule "fixture/Php/input_project/php-mpos"]
+	path = fixture/Php/input_project/php-mpos
+	url = https://github.com/MPOS/php-mpos.git
+[submodule "fixture/Php/input_project/laravel"]
+	path = fixture/Php/input_project/laravel
+	url = https://github.com/laravel/laravel.git
+[submodule "fixture/Java/input_project/scalpel"]
+	path = fixture/Java/input_project/scalpel
+	url = https://github.com/JakeWharton/scalpel.git
+[submodule "fixture/Java/input_project/u2020"]
+	path = fixture/Java/input_project/u2020
+	url = https://github.com/JakeWharton/u2020.git
+[submodule "fixture/Php/input_project/yii2"]
+	path = fixture/Php/input_project/yii2
+	url = https://github.com/yiisoft/yii2.git
+[submodule "fixture/Php/input_project/CodeIgniter"]
+	path = fixture/Php/input_project/CodeIgniter
+	url = https://github.com/EllisLab/CodeIgniter.git
+[submodule "fixture/Java/input_project/android-betterpickers"]
+	path = fixture/Java/input_project/android-betterpickers
+	url = https://github.com/derekbrameyer/android-betterpickers.git
+[submodule "fixture/Java/input_project/Hydra"]
+	path = fixture/Java/input_project/Hydra
+	url = https://github.com/Findwise/Hydra.git
+[submodule "fixture/Php/input_project/symfony"]
+	path = fixture/Php/input_project/symfony
+	url = https://github.com/symfony/symfony.git
+[submodule "fixture/JavaScript/input_project/mathjs"]
+	path = fixture/JavaScript/input_project/mathjs
+	url = https://github.com/josdejong/mathjs.git
