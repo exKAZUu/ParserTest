@@ -1,4 +1,8 @@
 <?php
+echo "1";
+echo 1;
+echo 1, 2;
+
 $i = 0;
 f();
 
