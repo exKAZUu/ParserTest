@@ -18,30 +18,18 @@ public class Seed {
 
 		TEST:
 		for (i = 0; i < args.length; i++) {
-			for (; true; ) {
-				System.out.println();
-			}
 		}
 		TEST2:
 		while (args.length == 0) {
-			while (true) {
-				System.out.println();
-			}
 		}
 		TEST3:
 		do {
-			do {
-			} while (args.length == 0);
 		} while (args.length == 0);
-		{}
 		if (args.length < 0) {
-			if (true) {
-			}
 			TEST4:
 			System.out.println();
 			;
 			{ System.out.println(); }
 		}
-		;
 	}
 }
