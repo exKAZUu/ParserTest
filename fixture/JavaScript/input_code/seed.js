@@ -8,15 +8,16 @@ TEST:
 while (args.length == 0) {
 }
 
+TEST2:
 do {
 } while (args.length == 0);
 
 if (args.length < 0) {
+	;
 }
 	
 {}
 { i = i - 1; }
 ;
 i = i + 1;
-TEST2:
 func();
