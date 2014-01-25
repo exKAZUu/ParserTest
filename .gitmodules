@@ -277,3 +277,6 @@
 [submodule "fixture/JavaScript/input_project/mathjs"]
 	path = fixture/JavaScript/input_project/mathjs
 	url = https://github.com/josdejong/mathjs.git
+[submodule "fixture/Php/input_project/flysystem"]
+	path = fixture/Php/input_project/flysystem
+	url = https://github.com/thephpleague/flysystem.git
