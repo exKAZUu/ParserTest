@@ -86,6 +86,18 @@ namespace ParserTests {
             return path;
         }
 
+        public static string GetGitRepositoryPath(string url) {
+            var start = url.LastIndexOf('/');
+            var end = url.Length;
+            if (url.EndsWith(".git")) {
+                end -= 4;
+            } else if (url.EndsWith("/")) {
+                end -= 1;
+            }
+            var name = url.Substring(start + 1, end - (start + 1));
+            return GetPath("Git", name);
+        }
+
         public static string GetInputCodePath(string languageName, params string[] subNames) {
             return GetPath(languageName, "input_code", subNames);
         }

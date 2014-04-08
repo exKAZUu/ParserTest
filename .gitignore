@@ -108,3 +108,4 @@ Backup*/
 UpgradeLog*.XML
 
 *.occf_cache_data
+fixture/Git/
