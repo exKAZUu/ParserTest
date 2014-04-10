@@ -17,6 +17,7 @@
 #endregion
 
 using System;
+using System.Linq;
 using LibGit2Sharp;
 
 namespace ParserTests {
@@ -25,10 +26,19 @@ namespace ParserTests {
             Console.Write("Cloning ...");
             var clonedRepoPath = Repository.Clone(url, outPath);
             Console.WriteLine(" done");
-            using (var repo = new Repository(clonedRepoPath)) {
-                repo.Checkout(commitPointer);
-            }
+            Checkout(clonedRepoPath, commitPointer);
             return clonedRepoPath;
+        }
+
+        public static string Checkout(string repoPath, string commitPointer) {
+            using (var repo = new Repository(repoPath)) {
+                if (!repo.Commits.Any() || !repo.Commits.First().Sha.StartsWith(commitPointer)) {
+                    repo.RemoveUntrackedFiles();
+                    repo.Reset(ResetMode.Hard);
+                    repo.Checkout(commitPointer);
+                }
+            }
+            return repoPath;
         }
     }
 }

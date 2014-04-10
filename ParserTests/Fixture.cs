@@ -26,24 +26,27 @@ namespace ParserTests {
         private static string _fixturePath;
 
         public static string FixturePath {
-            get { return _fixturePath ?? (_fixturePath = GetPath()); }
+            get {
+                return _fixturePath
+                       ?? (_fixturePath = Path.Combine(GetRootPath("ParserTests.sln"), "fixture"));
+            }
         }
 
-        private static string FindParserTestsSolutionFile(string dirPath) {
-            var ret = Directory.GetFiles(dirPath, "ParserTests.sln", SearchOption.AllDirectories);
+        private static string FindParserTestsSolutionFile(string fileNameInRootDir, string dirPath) {
+            var ret = Directory.GetFiles(dirPath, fileNameInRootDir, SearchOption.AllDirectories);
             return ret.Length == 0 ? null : ret[0];
         }
 
-        private static string GetPath() {
-            var path = Environment.CurrentDirectory;
+        public static string GetRootPath(string fileNameInRootDir) {
+            var path = Path.GetFullPath(Environment.CurrentDirectory);
             string solutionPath;
-            while ((solutionPath = FindParserTestsSolutionFile(path)) == null) {
+            while ((solutionPath = FindParserTestsSolutionFile(fileNameInRootDir, path)) == null) {
                 path = Path.GetDirectoryName(path);
                 if (path == null) {
-                    throw new IOException("'fixture' directory is not found.");
+                    throw new IOException(fileNameInRootDir + " is not found.");
                 }
             }
-            return Path.Combine(Path.GetDirectoryName(solutionPath), "fixture");
+            return Path.GetDirectoryName(solutionPath);
         }
 
         private static string GetPath(params string[] subNames) {
