@@ -17,17 +17,24 @@
 #endregion
 
 using System;
+using System.IO;
 using System.Linq;
 using LibGit2Sharp;
 
 namespace ParserTests {
     public static class Git {
-        public static string Clone(string url, string commitPointer, string outPath) {
+        public static void CloneAndCheckout(string repoPath, string url, string commitPointer) {
+            if (!Directory.GetDirectories(repoPath).Any()) {
+                Clone(repoPath, url, commitPointer);
+            }
+            Checkout(repoPath, commitPointer);
+        }
+
+        public static void Clone(string repoPath, string url, string commitPointer) {
             Console.Write("Cloning ...");
-            var clonedRepoPath = Repository.Clone(url, outPath);
+            Repository.Clone(url, repoPath);
             Console.WriteLine(" done");
-            Checkout(clonedRepoPath, commitPointer);
-            return clonedRepoPath;
+            Checkout(repoPath, commitPointer);
         }
 
         public static string Checkout(string repoPath, string commitPointer) {
