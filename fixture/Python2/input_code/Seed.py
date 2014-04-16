@@ -5,4 +5,6 @@ while True:
 	print (1)
 
 if False:
-	print (1)
+	pass
+else:
+	print (2)
