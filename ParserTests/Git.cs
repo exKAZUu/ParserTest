@@ -24,7 +24,10 @@ using LibGit2Sharp;
 namespace ParserTests {
     public static class Git {
         public static void CloneAndCheckout(string repoPath, string url, string commitPointer) {
-            if (!Directory.GetDirectories(repoPath).Any()) {
+            Directory.CreateDirectory(repoPath);
+            if (Directory.GetDirectories(repoPath).Length + Directory.GetFiles(repoPath).Length <= 1) {
+                Directory.Delete(repoPath, true);
+                Directory.CreateDirectory(repoPath);
                 Clone(repoPath, url, commitPointer);
             }
             Checkout(repoPath, commitPointer);
