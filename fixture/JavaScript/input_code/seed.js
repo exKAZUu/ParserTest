@@ -20,4 +20,4 @@ if (args.length < 0) {
 { i = i - 1; }
 ;
 i = i + 1;
-func();
+func(0 + 1 * 2 / 3 % 4);

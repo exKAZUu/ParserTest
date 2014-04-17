@@ -9,4 +9,4 @@ if False:
 elif True:
 	int("1")
 else:
-	print (2)
+	print (0 + 1 * 2 / 3 % 4)

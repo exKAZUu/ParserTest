@@ -23,7 +23,7 @@ namespace Occf.Learner.Core.Tests.Experiments {
 			do {
 			} while (args.Length == 0);
 			if (args.Length < 0) {
-				Console.WriteLine();
+				Console.WriteLine(0 + 1 * 2 / 3 % 4);
 				;
 				{ Console.WriteLine(); }
 			}
