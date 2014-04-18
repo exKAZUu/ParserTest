@@ -21,6 +21,13 @@ do {
 for ($i = 0; $i < 10; $i++) {
 }
 
+switch (1) {
+	case 0:
+		break;
+	default:
+		break;
+}
+
 {}
 ;
 Lable: $i = 0;

@@ -28,6 +28,12 @@ namespace Occf.Learner.Core.Tests.Experiments {
 				{ Console.WriteLine(); }
 			}
 			;
+			switch (1) {
+				case 0:
+					break;
+				default:
+					break;
+			}
 		}
 	}
 }

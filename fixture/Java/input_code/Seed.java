@@ -25,6 +25,12 @@ public class Seed {
 		TEST3:
 		do {
 		} while (args.length == 0);
+		switch (1) {
+			case 0:
+				break;
+			default:
+				break;
+		}
 		if (args.length < 0) {
 			TEST4:
 			System.out.println(0 + 1 * 2 / 3 % 4);

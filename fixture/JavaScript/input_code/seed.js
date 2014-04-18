@@ -21,3 +21,10 @@ if (args.length < 0) {
 ;
 i = i + 1;
 func(0 + 1 * 2 / 3 % 4);
+
+switch (1) {
+	case 0:
+		break;
+	default:
+		break;
+}
