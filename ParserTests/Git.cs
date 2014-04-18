@@ -17,44 +17,58 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using LibGit2Sharp;
 
 namespace ParserTests {
     public static class Git {
-        public static void CloneAndCheckout(string repoPath, string url, string commitPointer) {
-            for (int i = 0; i < 5; i++) {
-                Directory.CreateDirectory(repoPath);
-                if (Directory.GetDirectories(repoPath).Length + Directory.GetFiles(repoPath).Length
-                    <= 1) {
-                    Directory.Delete(repoPath, true);
-                    Directory.CreateDirectory(repoPath);
-                    Clone(repoPath, url, commitPointer);
-                }
-                try {
-                    Checkout(repoPath, commitPointer);
-                    return;
-                } catch {
-                    Directory.Delete(repoPath, true);
-                }
-            }
-            throw new Exception("Fail to clone.");
+        public static ProcessStartInfo CreateProcessStartInfo(
+                string filePath, IEnumerable<string> arguments, string workingDirectory = "") {
+            var info = new ProcessStartInfo {
+                FileName = filePath,
+                Arguments = string.Join(" ", arguments),
+                CreateNoWindow = true,
+                UseShellExecute = false,
+                WorkingDirectory = workingDirectory,
+            };
+            return info;
         }
 
-        public static void Clone(string repoPath, string url, string commitPointer) {
-            Console.Write("Cloning ...");
-            Repository.Clone(url, repoPath);
-            Console.WriteLine(" done");
+        public static int InvokeProcess(
+                string filePath, IEnumerable<string> arguments, string workingDirectory = "") {
+            var info = CreateProcessStartInfo(filePath, arguments, workingDirectory);
+            using (var p = Process.Start(info)) {
+                p.WaitForExit();
+                return p.ExitCode;
+            }
+        }
+
+        public static void CloneAndCheckout(string repoPath, string url, string commitPointer) {
+            Directory.CreateDirectory(repoPath);
+            if (Directory.GetDirectories(repoPath).Length + Directory.GetFiles(repoPath).Length
+                <= 1) {
+                Directory.Delete(repoPath, true);
+                Directory.CreateDirectory(repoPath);
+                Clone(repoPath, url);
+            }
             Checkout(repoPath, commitPointer);
+        }
+
+        public static void Clone(string repoPath, string url) {
+            var workPath = Path.GetDirectoryName(repoPath);
+            Console.Write("Cloning ...");
+            InvokeProcess("git", new[] { "clone", url }, workPath);
+            Console.WriteLine(" done");
         }
 
         public static string Checkout(string repoPath, string commitPointer) {
             using (var repo = new Repository(repoPath)) {
                 if (!repo.Commits.Any() || !repo.Commits.First().Sha.StartsWith(commitPointer)) {
-                    repo.RemoveUntrackedFiles();
-                    repo.Reset(ResetMode.Hard);
-                    repo.Checkout(commitPointer);
+                    InvokeProcess("git", new[] { "pull" }, repoPath);
+                    InvokeProcess("git", new[] { "checkout", commitPointer }, repoPath);
                 }
             }
             return repoPath;
