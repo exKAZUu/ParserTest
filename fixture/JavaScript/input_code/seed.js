@@ -1,20 +1,22 @@
 console.log(args != null);
 
-for (var i = 0; i < args.length; i++) {
-	console.log(1);
-}
-
 TEST:
-while (args.length == 0) {
-}
-
-TEST2:
-do {
-} while (args.length == 0);
-
+for (var i = 0; i < args.length; i++) { }
+while (args.length == 0) { }
+do { } while (args.length == 0);
 if (args.length < 0) {
 	;
+} else if (args.length < 0) {
+} else {
 }
+
+console.log(true);
+
+TEST:
+for (; true;) { }
+while (true) { }
+do { } while (true);
+if (true) { } else if (true) { } else { }
 	
 {}
 { i = i - 1; }

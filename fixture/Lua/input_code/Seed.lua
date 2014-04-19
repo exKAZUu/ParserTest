@@ -21,3 +21,12 @@ end
 ::Label::
 i = 0
 
+if true then
+elseif true then
+end
+
+while true do
+end
+
+repeat
+until true
