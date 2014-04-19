@@ -2,7 +2,7 @@ print(1)
 print(1, 2)
 
 i = 0
-f(0 + 1 * 2 / 3 % 4)
+f(0 + 1 - 2 * 3 / 4 % 5)
 
 if i == 0 then
 elseif 1 < i then

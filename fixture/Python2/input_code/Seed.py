@@ -9,7 +9,7 @@ if a == 1:
 elif a == 0:
 	int("1")
 else:
-	print (0 + 1 * 2 / 3 % 4)
+	print (0 + 1 - 2 * 3 / 4 % 5)
 
 while True:
 	pass
