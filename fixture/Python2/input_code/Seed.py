@@ -1,12 +1,22 @@
 str(1)
 a = 1; str(o.f(), b)
 
-while True:
+while a == 1:
 	print (1)
 
-if False:
+if a == 1:
 	pass
-elif True:
+elif a == 0:
 	int("1")
 else:
 	print (0 + 1 * 2 / 3 % 4)
+
+while True:
+	pass
+
+if True:
+	pass
+elif True:
+	pass
+else:
+	pass
