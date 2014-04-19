@@ -22,7 +22,7 @@ if (true) { } else if (true) { } else { }
 { i = i - 1; }
 ;
 i = i + 1;
-func(0 + 1 * 2 / 3 % 4);
+func(0 + 1 - 2 * 3 / 4 % 5);
 
 switch (1) {
 	case 0:

@@ -21,7 +21,7 @@ public class Seed {
 		do { } while (args.length == 0);
 		if (args.length < 0) {
 			TEST4:
-			System.out.println(0 + 1 * 2 / 3 % 4);
+			System.out.println(0 + 1 - 2 * 3 / 4 % 5);
 			;
 			{ System.out.println(); }
 		} else if (args.Length < 0) {
