@@ -57,6 +57,12 @@ namespace ParserTests {
             Checkout(repoPath, commitPointer);
         }
 
+        public static void Reset(string repoPath) {
+            Console.Write("Resetting ...");
+            InvokeProcess("git", new[] { "reset", "--hard" }, repoPath);
+            Console.WriteLine(" done");
+        }
+
         public static void Clone(string repoPath, string url) {
             var workPath = Path.GetDirectoryName(repoPath);
             Console.Write("Cloning ...");
