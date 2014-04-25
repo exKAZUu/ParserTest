@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using Code2Xml.Core.Generators;
 using LibGit2Sharp;
 
 namespace ParserTests {
@@ -73,11 +74,41 @@ namespace ParserTests {
         public static string Checkout(string repoPath, string commitPointer) {
             using (var repo = new Repository(repoPath)) {
                 if (!repo.Commits.Any() || !repo.Commits.First().Sha.StartsWith(commitPointer)) {
-                    InvokeProcess("git", new[] { "pull" }, repoPath);
                     InvokeProcess("git", new[] { "checkout", commitPointer }, repoPath);
                 }
             }
             return repoPath;
+        }
+
+        public static Tuple<string, string> GetCommitPointers(
+                string repoPath, CstGenerator gen, string searchPattern) {
+            using (var repo = new Repository(repoPath)) {
+                var now = repo.Commits.First();
+                var since = now.Committer.When.AddMonths(-6);
+                var commit = repo.Commits.FirstOrDefault(
+                        c => {
+                            if (c.Committer.When >= since) {
+                                return false;
+                            }
+                            InvokeProcess("git", new[] { "checkout", c.Sha }, repoPath);
+                            var files =
+                                    Directory.GetFiles(
+                                            repoPath, searchPattern, SearchOption.AllDirectories)
+                                            .ToList();
+                            foreach (var file in files) {
+                                try {
+                                    gen.GenerateTreeFromCodePath(file, null, true);
+                                } catch {
+                                    InvokeProcess("git", new[] { "checkout", now.Sha }, repoPath);
+                                    return false;
+                                }
+                            }
+                            InvokeProcess("git", new[] { "checkout", now.Sha }, repoPath);
+                            return true;
+                        })
+                             ?? repo.Commits.Last();
+                return Tuple.Create(now.Sha, commit.Sha);
+            }
         }
     }
 }
