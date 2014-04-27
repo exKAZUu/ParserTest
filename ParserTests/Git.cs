@@ -81,18 +81,19 @@ namespace ParserTests {
 
         #endregion
 
-        public static void CloneAndCheckout(string repoPath, string url, string commitPointer) {
+        public static string CloneAndCheckout(string repoPath, string url, string commitPointer) {
             Clone(repoPath, url);
-            Checkout(repoPath, commitPointer);
+            return Checkout(repoPath, commitPointer);
         }
 
-        public static void CloneAndCheckoutAndReset(
+        public static string CloneAndCheckoutAndReset(
                 string repoPath, string url, string commitPointer) {
             var cloned = Clone(repoPath, url);
-            Checkout(repoPath, commitPointer);
+            var ret = Checkout(repoPath, commitPointer);
             if (!cloned) {
                 Reset(repoPath);
             }
+	        return ret;
         }
 
         public static bool Clone(string repoPath, string url) {
@@ -108,11 +109,14 @@ namespace ParserTests {
 
         public static string Checkout(string repoPath, string commitPointer) {
             using (var repo = new Repository(repoPath)) {
-                if (!repo.Commits.First().Sha.StartsWith(commitPointer)) {
-                    InvokeProcess("git", new[] { "checkout", commitPointer }, repoPath);
+                if (repo.Commits.First().Sha.StartsWith(commitPointer)) {
+	                return repo.Commits.First().Sha;
                 }
             }
-            return repoPath;
+            InvokeProcess("git", new[] { "checkout", commitPointer }, repoPath);
+            using (var repo = new Repository(repoPath)) {
+	            return repo.Commits.First().Sha;
+            }
         }
 
         public static void Reset(string repoPath) {
