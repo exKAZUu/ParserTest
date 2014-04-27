@@ -155,7 +155,7 @@ namespace ParserTests {
                         return null;
                     }
                     while (!predicate2(head, commit)) {
-                        commit = commit.Parents.FirstOrDefault();
+                        commit = commit.Parents.Skip(5).FirstOrDefault();
                         if (commit == null) {
                             return null;
                         }
