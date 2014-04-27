@@ -26,6 +26,8 @@ using LibGit2Sharp;
 
 namespace ParserTests {
     public static class Git {
+        #region Process
+
         public static ProcessStartInfo CreateProcessStartInfo(
                 string filePath, IEnumerable<string> arguments, string workingDirectory = "") {
             var info = new ProcessStartInfo {
@@ -47,15 +49,70 @@ namespace ParserTests {
             }
         }
 
-        public static void CloneAndCheckout(string repoPath, string url, string commitPointer) {
-            Directory.CreateDirectory(repoPath);
-            if (Directory.GetDirectories(repoPath).Length + Directory.GetFiles(repoPath).Length
-                <= 1) {
-                Directory.Delete(repoPath, true);
-                Directory.CreateDirectory(repoPath);
-                Clone(repoPath, url);
+        #endregion
+
+        #region Deletion
+
+        public static void ForceDeleteDirectory(string dirPath) {
+            var dirInfo = new DirectoryInfo(dirPath);
+            ForceDeleteDirectory(dirInfo);
+        }
+
+        public static void ForceDeleteDirectory(DirectoryInfo dirInfo) {
+            RemoveReadonlyAttribute(dirInfo);
+            dirInfo.Delete(true);
+        }
+
+        private static void RemoveReadonlyAttribute(DirectoryInfo dirInfo) {
+            if ((dirInfo.Attributes & FileAttributes.ReadOnly) ==
+                FileAttributes.ReadOnly) {
+                dirInfo.Attributes = FileAttributes.Normal;
             }
+            foreach (var fi in dirInfo.EnumerateFiles()) {
+                if ((fi.Attributes & FileAttributes.ReadOnly) ==
+                    FileAttributes.ReadOnly) {
+                    fi.Attributes = FileAttributes.Normal;
+                }
+            }
+            foreach (var di in dirInfo.EnumerateDirectories()) {
+                RemoveReadonlyAttribute(di);
+            }
+        }
+
+        #endregion
+
+        public static void CloneAndCheckout(string repoPath, string url, string commitPointer) {
+            Clone(repoPath, url);
             Checkout(repoPath, commitPointer);
+        }
+
+        public static void CloneAndCheckoutAndReset(
+                string repoPath, string url, string commitPointer) {
+            var cloned = Clone(repoPath, url);
+            Checkout(repoPath, commitPointer);
+            if (!cloned) {
+                Reset(repoPath);
+            }
+        }
+
+        public static bool Clone(string repoPath, string url) {
+            if (!PrepareDirectoryToClone(repoPath)) {
+                return false;
+            }
+            var workPath = Path.GetDirectoryName(repoPath);
+            Console.Write("Cloning ...");
+            InvokeProcess("git", new[] { "clone", url }, workPath);
+            Console.WriteLine(" done");
+            return true;
+        }
+
+        public static string Checkout(string repoPath, string commitPointer) {
+            using (var repo = new Repository(repoPath)) {
+                if (!repo.Commits.First().Sha.StartsWith(commitPointer)) {
+                    InvokeProcess("git", new[] { "checkout", commitPointer }, repoPath);
+                }
+            }
+            return repoPath;
         }
 
         public static void Reset(string repoPath) {
@@ -64,20 +121,45 @@ namespace ParserTests {
             Console.WriteLine(" done");
         }
 
-        public static void Clone(string repoPath, string url) {
-            var workPath = Path.GetDirectoryName(repoPath);
-            Console.Write("Cloning ...");
-            InvokeProcess("git", new[] { "clone", url }, workPath);
-            Console.WriteLine(" done");
-        }
-
-        public static string Checkout(string repoPath, string commitPointer) {
-            using (var repo = new Repository(repoPath)) {
-                if (!repo.Commits.Any() || !repo.Commits.First().Sha.StartsWith(commitPointer)) {
-                    InvokeProcess("git", new[] { "checkout", commitPointer }, repoPath);
+        public static bool PrepareDirectoryToClone(string repoPath) {
+            if (!Directory.Exists(repoPath)) {
+                return true;
+            }
+            if (Directory.EnumerateFileSystemEntries(repoPath).Skip(1).Any()) {
+                using (var repo = new Repository(repoPath)) {
+                    if (repo.Commits.Any()) {
+                        return false;
+                    }
                 }
             }
-            return repoPath;
+            ForceDeleteDirectory(repoPath);
+            return true;
+        }
+        public static string FindCommitPointers(
+                string repoPath, Func<bool> predicate1, Func<bool> predicate2) {
+            using (var repo = new Repository(repoPath)) {
+                var sha = repo.Commits.First().Sha;
+                try {
+                    var commit = repo.Commits.FirstOrDefault(
+                            c => {
+                                InvokeProcess("git", new[] { "checkout", c.Sha }, repoPath);
+                                return predicate1();
+                            });
+                    if (commit == null) {
+                        return null;
+                    }
+                    while (!predicate2()) {
+                        commit = commit.Parents.FirstOrDefault();
+                        if (commit == null) {
+                            return null;
+                        }
+                        InvokeProcess("git", new[] { "checkout", commit.Sha }, repoPath);
+                    }
+                    return commit.Sha;
+                } finally {
+                    InvokeProcess("git", new[] { "checkout", sha }, repoPath);
+                }
+            }
         }
 
         public static Tuple<string, string> GetCommitPointers(
