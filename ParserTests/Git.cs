@@ -135,20 +135,22 @@ namespace ParserTests {
             ForceDeleteDirectory(repoPath);
             return true;
         }
+
         public static string FindCommitPointers(
-                string repoPath, Func<bool> predicate1, Func<bool> predicate2) {
+                string repoPath, Func<Commit, Commit, bool> predicate1, Func<Commit, Commit, bool> predicate2) {
             using (var repo = new Repository(repoPath)) {
-                var sha = repo.Commits.First().Sha;
+	            var head = repo.Commits.First();
+                var sha = head.Sha;
                 try {
                     var commit = repo.Commits.FirstOrDefault(
                             c => {
                                 InvokeProcess("git", new[] { "checkout", c.Sha }, repoPath);
-                                return predicate1();
+                                return predicate1(head, c);
                             });
                     if (commit == null) {
                         return null;
                     }
-                    while (!predicate2()) {
+                    while (!predicate2(head, commit)) {
                         commit = commit.Parents.FirstOrDefault();
                         if (commit == null) {
                             return null;
