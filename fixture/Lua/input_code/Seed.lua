@@ -2,7 +2,7 @@ print(1)
 print(1, 2)
 
 i = 0
-f()
+f(0 + 1 - 2 * 3 / 4 % 5)
 
 if i == 0 then
 elseif 1 < i then
@@ -21,3 +21,12 @@ end
 ::Label::
 i = 0
 
+if true then
+elseif true then
+end
+
+while true do
+end
+
+repeat
+until true
