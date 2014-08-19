@@ -93,7 +93,7 @@ namespace ParserTests {
             if (!cloned) {
                 Reset(repoPath);
             }
-	        return ret;
+            return ret;
         }
 
         public static bool Clone(string repoPath, string url) {
@@ -110,12 +110,12 @@ namespace ParserTests {
         public static string Checkout(string repoPath, string commitPointer) {
             using (var repo = new Repository(repoPath)) {
                 if (repo.Commits.First().Sha.StartsWith(commitPointer)) {
-	                return repo.Commits.First().Sha;
+                    return repo.Commits.First().Sha;
                 }
             }
             InvokeProcess("git", new[] { "checkout", commitPointer }, repoPath);
             using (var repo = new Repository(repoPath)) {
-	            return repo.Commits.First().Sha;
+                return repo.Commits.First().Sha;
             }
         }
 
@@ -141,9 +141,10 @@ namespace ParserTests {
         }
 
         public static string FindCommitPointers(
-                string repoPath, Func<Commit, Commit, bool> predicate1, Func<Commit, Commit, bool> predicate2) {
+                string repoPath, Func<Commit, Commit, bool> predicate1,
+                Func<Commit, Commit, bool> predicate2) {
             using (var repo = new Repository(repoPath)) {
-	            var head = repo.Commits.First();
+                var head = repo.Commits.First();
                 var sha = head.Sha;
                 try {
                     var commit = repo.Commits.FirstOrDefault(
