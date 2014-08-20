@@ -90,14 +90,14 @@ namespace ParserTests {
         }
 
         public static string GetGitRepositoryPath(string url) {
-            var start = (url.EndsWith("/") ? url.Substring(0, url.Length - 1) : url)
-                    .LastIndexOf('/');
-            var end = url.Length;
-            if (url.EndsWith(".git")) {
-                end -= 4;
+            var names = url.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+            if (names[names.Length - 1].EndsWith(".git")) {
+                names[names.Length - 1] = 
+                    names[names.Length - 1].Substring(0, names[names.Length - 1].Length - 4);
             }
-            var name = url.Substring(start + 1, end - (start + 1));
-            return GetPath("Git", name);
+            var path = GetPath("Git", names[names.Length - 2], names[names.Length - 1]);
+            Directory.CreateDirectory(Path.GetDirectoryName(path));
+            return path;
         }
 
         public static string GetInputCodePath(string languageName, params string[] subNames) {
