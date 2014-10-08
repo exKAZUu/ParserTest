@@ -101,7 +101,7 @@ namespace ParserTests {
                 return false;
             }
             var workPath = Path.GetDirectoryName(repoPath);
-            Console.Write("Cloning ...");
+            Console.Write("Cloning " + url);
             InvokeProcess("git", new[] { "clone", url }, workPath);
             Console.WriteLine(" done");
             return true;
