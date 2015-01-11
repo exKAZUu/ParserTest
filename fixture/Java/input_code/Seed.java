@@ -3,32 +3,25 @@ package com.google.testing.pogen;
 import com.google.common.base.Preconditions;
 
 public class Seed {
-	public static void main(String[] args) {
-		int a = 0;
-		int b, c;
-		class A { }
-		
-		checkArgument(args == null);
-		checkArgument(args == null, "test");
-		Preconditions.checkArgument(args != null);
-		Preconditions.checkArgument(args != null, "test");
-		com.google.common.base.Preconditions.checkArgument(args.length == 0);
-		com.google.common.base.Preconditions.checkArgument(args.length == 0, "test");
+	public static void main(String[] i) {
+		checkArgument(i);
+		checkArgument(i, "");
+		Preconditions.checkArgument(i);
+		Preconditions.checkArgument(i, "");
+		com.google.common.base.Preconditions.checkArgument(i);
+		com.google.common.base.Preconditions.checkArgument(i, "");
 
-		TEST:
-		for (i = 0; i < args.length; i++) { }
-		while (args.length == 0) { }
-		do { } while (args.length == 0);
-		if (args.length < 0) {
-			TEST4:
-			System.out.println(0 + 1 - 2 * 3 / 4 % 5);
-			;
-			{ System.out.println(); }
-		} else if (args.Length < 0) {
-		} else {
-		}
+		L: i = 0;
+		;
+		{ i = 0; }
+		f(0 + 1 - 2 * 3 / 4 % 5);
 
-		switch (1) {
+		for (; b;) { }
+		while (b) { }
+		do { } while (b);
+		if (b) { } else if (b) { } else { }
+
+		switch (b) {
 			case 0:
 			case 1:
 				break;
@@ -37,13 +30,12 @@ public class Seed {
 		}
 		
 		checkArgument(true);
-		checkArgument(true, "test");
+		checkArgument(true, "");
 		Preconditions.checkArgument(true);
-		Preconditions.checkArgument(true, "test");
+		Preconditions.checkArgument(true, "");
 		com.google.common.base.Preconditions.checkArgument(true);
-		com.google.common.base.Preconditions.checkArgument(true, "test");
+		com.google.common.base.Preconditions.checkArgument(true, "");
 
-		TEST:
 		for (; true;) { }
 		while (true) { }
 		do { } while (true);

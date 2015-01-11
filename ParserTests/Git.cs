@@ -113,6 +113,7 @@ namespace ParserTests {
                     return repo.Commits.First().Sha;
                 }
             }
+            InvokeProcess("git", new[] { "fetch", "origin" }, repoPath);
             InvokeProcess("git", new[] { "checkout", commitPointer }, repoPath);
             using (var repo = new Repository(repoPath)) {
                 return repo.Commits.First().Sha;

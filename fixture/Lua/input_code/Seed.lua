@@ -18,7 +18,7 @@ for i = 0, 1, 1 do
 end
 
 ;
-::Label::
+::L::
 i = 0
 
 if true then

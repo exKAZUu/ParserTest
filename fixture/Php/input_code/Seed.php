@@ -1,18 +1,12 @@
 <?php
-echo "1";
+echo "";
 echo 1;
 echo 1, 2;
 
-$i = 0;
-f(0 + 1 - 2 * 3 / 4 % 5);
-
-if ($i == 0) {
-} elseif (1 < $i) {
-} else {
-}
-while ($i != 0) { }
-do { } while ($i != 0);
-for ($i = 0; $i < 10; $i++) { }
+if ($b) {} elseif ($b) {} else {}
+while ($b) { }
+do { } while ($b);
+for (; $b;) { }
 switch (1) {
 	case 0:
 		break;
@@ -22,12 +16,10 @@ switch (1) {
 
 {}
 ;
-Lable: $i = 0;
+L: $i = 0;
+f(0 + 1 - 2 * 3 / 4 % 5);
 
-if (true) {
-} elseif (true) {
-} else {
-}
+if (true) {} elseif (true) {} else {}
 while (true) { }
 do { } while (true);
 for (; true;) { }
