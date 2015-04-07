@@ -4,12 +4,12 @@ import com.google.common.base.Preconditions;
 
 public class Seed {
 	public static void main(String[] i) {
-		checkArgument(i);
-		checkArgument(i, "");
-		Preconditions.checkArgument(i);
-		Preconditions.checkArgument(i, "");
-		com.google.common.base.Preconditions.checkArgument(i);
-		com.google.common.base.Preconditions.checkArgument(i, "");
+		checkArgument(b);
+		checkArgument(b, "");
+		Preconditions.checkArgument(b);
+		Preconditions.checkArgument(b, "");
+		com.google.common.base.Preconditions.checkArgument(b);
+		com.google.common.base.Preconditions.checkArgument(b, "");
 
 		L: i = 0;
 		;
@@ -28,7 +28,7 @@ public class Seed {
 			default:
 				break;
 		}
-		
+
 		checkArgument(true);
 		checkArgument(true, "");
 		Preconditions.checkArgument(true);
