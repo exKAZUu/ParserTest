@@ -5,13 +5,16 @@ while (b) { }
 do { } while (b);
 if (b) { } else if (b) { } else { }
 
-console.log(true);
+for (; a, b;) { }
+while (a, b) { }
+do { } while (a, b);
+if (a, b) { } else if (a, b) { } else { }
 
 for (; true;) { }
 while (true) { }
 do { } while (true);
 if (true) { } else if (true) { } else { }
-	
+
 {}
 { i = 1; }
 ;
