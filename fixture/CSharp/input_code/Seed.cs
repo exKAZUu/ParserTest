@@ -12,13 +12,13 @@ namespace Occf.Learner.Core.Ts.Experiments {
 			System.Diagnostics.Contracts.Contract.Requires(b, "");
 			System.Diagnostics.Contracts.Contract.Requires<Exception>(b);
 			System.Diagnostics.Contracts.Contract.Requires<Exception>(b, "");
-			
+
 			T:
 			f(0 + 1 - 2 * 3 / 4 % 5);
 			;
 			{ f(); }
 
-			for (; b; ) { }
+			for (; b;) { }
 			while (b) { }
 			do { } while (b);
 			if (b) { } else if (b) { } else { }
@@ -40,7 +40,7 @@ namespace Occf.Learner.Core.Ts.Experiments {
 			System.Diagnostics.Contracts.Contract.Requires(true, "");
 			System.Diagnostics.Contracts.Contract.Requires<Exception>(true);
 			System.Diagnostics.Contracts.Contract.Requires<Exception>(true, "");
-			
+
 			for (; true;) { }
 			while (true) { }
 			do { } while (true);
