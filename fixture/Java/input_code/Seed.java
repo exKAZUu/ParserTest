@@ -5,11 +5,6 @@ import com.google.common.base.Preconditions;
 public class Seed {
 	public static void main(String[] i) {
 		checkArgument(b);
-		checkArgument(b, "");
-		Preconditions.checkArgument(b);
-		Preconditions.checkArgument(b, "");
-		com.google.common.base.Preconditions.checkArgument(b);
-		com.google.common.base.Preconditions.checkArgument(b, "");
 
 		L: i = 0;
 		;
@@ -30,11 +25,6 @@ public class Seed {
 		}
 
 		checkArgument(true);
-		checkArgument(true, "");
-		Preconditions.checkArgument(true);
-		Preconditions.checkArgument(true, "");
-		com.google.common.base.Preconditions.checkArgument(true);
-		com.google.common.base.Preconditions.checkArgument(true, "");
 
 		for (; true;) { }
 		while (true) { }
