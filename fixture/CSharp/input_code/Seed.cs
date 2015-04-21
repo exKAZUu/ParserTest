@@ -7,6 +7,7 @@ namespace Occf.Learner.Core.Ts.Experiments {
 			Contract.Requires(b, "");
 			Contract.Requires<Exception>(b);
 			Contract.Requires<Exception>(b, "");
+			XXXXXXXX.Requires(b);
 
 			System.Diagnostics.Contracts.Contract.Requires(b);
 			System.Diagnostics.Contracts.Contract.Requires(b, "");
