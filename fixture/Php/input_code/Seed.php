@@ -7,7 +7,7 @@ if ($b) {} elseif ($b) {} else {}
 while ($b) { }
 do { } while ($b);
 for (; $b;) { }
-switch (1) {
+switch ($b) {
 	case 0:
 		break;
 	default:

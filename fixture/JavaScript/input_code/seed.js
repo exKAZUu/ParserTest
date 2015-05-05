@@ -22,7 +22,7 @@ i = 1;
 T:
 f(0 + 1 - 2 * 3 / 4 % 5);
 
-switch (1) {
+switch (b) {
 	case 0:
 		break;
 	default:
