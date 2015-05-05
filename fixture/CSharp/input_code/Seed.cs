@@ -24,7 +24,7 @@ namespace Occf.Learner.Core.Ts.Experiments {
 			do { } while (b);
 			if (b) { } else if (b) { } else { }
 
-			switch (1) {
+			switch (b) {
 				case 0:
 				case 1:
 					break;
