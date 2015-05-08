@@ -1,18 +1,18 @@
-print(1)
-print(1, 2)
+print(b)
+print(b, c)
 
 i = 0
 f(0 + 1 - 2 * 3 / 4 % 5)
 
-if i == 0 then
-elseif 1 < i then
+if b then
+elseif b then
 end
 
-while i ~= 0 do
+while b do
 end
 
 repeat
-until i == 0
+until b
 
 for i = 0, 1, 1 do
 end
