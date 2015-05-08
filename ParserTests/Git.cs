@@ -21,7 +21,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using Code2Xml.Core.Generators;
 using LibGit2Sharp;
 
 namespace ParserTests {
@@ -139,66 +138,6 @@ namespace ParserTests {
             }
             ForceDeleteDirectory(repoPath);
             return true;
-        }
-
-        public static string FindCommitPointers(
-                string repoPath, Func<Commit, Commit, bool> predicate1,
-                Func<Commit, Commit, bool> predicate2) {
-            using (var repo = new Repository(repoPath)) {
-                var head = repo.Commits.First();
-                var sha = head.Sha;
-                try {
-                    var commit = repo.Commits.FirstOrDefault(
-                            c => {
-                                InvokeProcess("git", new[] { "checkout", c.Sha }, repoPath);
-                                return predicate1(head, c);
-                            });
-                    if (commit == null) {
-                        return null;
-                    }
-                    while (!predicate2(head, commit)) {
-                        commit = commit.Parents.Skip(5).FirstOrDefault();
-                        if (commit == null) {
-                            return null;
-                        }
-                        InvokeProcess("git", new[] { "checkout", commit.Sha }, repoPath);
-                    }
-                    return commit.Sha;
-                } finally {
-                    InvokeProcess("git", new[] { "checkout", sha }, repoPath);
-                }
-            }
-        }
-
-        public static Tuple<string, string> GetCommitPointers(
-                string repoPath, CstGenerator gen, string searchPattern) {
-            using (var repo = new Repository(repoPath)) {
-                var now = repo.Commits.First();
-                var since = now.Committer.When.AddMonths(-6);
-                var commit = repo.Commits.FirstOrDefault(
-                        c => {
-                            if (c.Committer.When >= since) {
-                                return false;
-                            }
-                            InvokeProcess("git", new[] { "checkout", c.Sha }, repoPath);
-                            var files =
-                                    Directory.GetFiles(
-                                            repoPath, searchPattern, SearchOption.AllDirectories)
-                                            .ToList();
-                            foreach (var file in files) {
-                                try {
-                                    gen.GenerateTreeFromCodePath(file, null, true);
-                                } catch {
-                                    InvokeProcess("git", new[] { "checkout", now.Sha }, repoPath);
-                                    return false;
-                                }
-                            }
-                            InvokeProcess("git", new[] { "checkout", now.Sha }, repoPath);
-                            return true;
-                        })
-                             ?? repo.Commits.Last();
-                return Tuple.Create(now.Sha, commit.Sha);
-            }
         }
     }
 }
