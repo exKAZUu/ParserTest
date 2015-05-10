@@ -1,4 +1,4 @@
-print(b)
+print(true)
 print(b, c)
 
 i = 0
