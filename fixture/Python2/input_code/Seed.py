@@ -1,4 +1,4 @@
-str(True)
+str(b)
 b = True; str(o.f(), a)
 
 while b:
