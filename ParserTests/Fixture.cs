@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (C) 2011-2014 Kazunori Sakamoto
+// Copyright (C) 2011-2016 Kazunori Sakamoto
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,17 +20,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace ParserTests {
     public static class Fixture {
         private static string _fixturePath;
 
-        public static string FixturePath {
-            get {
-                return _fixturePath
-                       ?? (_fixturePath = Path.Combine(GetRootPath("ParserTests.sln"), "fixture"));
-            }
-        }
+        public static string FixturePath =>
+                _fixturePath
+                ?? (_fixturePath = Path.Combine(GetRootPath("ParserTests.sln"), "fixture"));
 
         private static string FindParserTestsSolutionFile(string fileNameInRootDir, string dirPath) {
             var ret = Directory.GetFiles(dirPath, fileNameInRootDir, SearchOption.AllDirectories);
@@ -38,14 +36,14 @@ namespace ParserTests {
         }
 
         public static string GetRootPath(string fileNameInRootDir) {
-            var path = Path.GetFullPath(Environment.CurrentDirectory);
+            var path = new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath;
             string solutionPath;
-            while ((solutionPath = FindParserTestsSolutionFile(fileNameInRootDir, path)) == null) {
+            do {
                 path = Path.GetDirectoryName(path);
                 if (path == null) {
                     throw new IOException(fileNameInRootDir + " is not found.");
                 }
-            }
+            } while ((solutionPath = FindParserTestsSolutionFile(fileNameInRootDir, path)) == null);
             return Path.GetDirectoryName(solutionPath);
         }
 
@@ -55,7 +53,7 @@ namespace ParserTests {
 
         private static string GetPath(string language, string type, IEnumerable<string> subNames) {
             return Path.GetFullPath(
-                    subNames.Aggregate(Path.Combine(FixturePath, language, type), Path.Combine));
+                subNames.Aggregate(Path.Combine(FixturePath, language, type), Path.Combine));
         }
 
         public static FileInfo GetFile(params string[] subNames) {
@@ -76,12 +74,12 @@ namespace ParserTests {
             var path = Path.GetFullPath(subNames.Aggregate(FixturePath, Path.Combine));
             if (Directory.Exists(path)) {
                 var dirPaths = Directory.EnumerateDirectories(
-                        path, "*", SearchOption.TopDirectoryOnly);
+                    path, "*", SearchOption.TopDirectoryOnly);
                 foreach (var dirPath in dirPaths) {
                     Directory.Delete(dirPath, true);
                 }
                 var filePaths = Directory.EnumerateFiles(
-                        path, "*", SearchOption.TopDirectoryOnly);
+                    path, "*", SearchOption.TopDirectoryOnly);
                 foreach (var filePath in filePaths) {
                     File.Delete(filePath);
                 }
@@ -92,8 +90,8 @@ namespace ParserTests {
         public static string GetGitRepositoryPath(string url) {
             var names = url.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
             if (names[names.Length - 1].EndsWith(".git")) {
-                names[names.Length - 1] = 
-                    names[names.Length - 1].Substring(0, names[names.Length - 1].Length - 4);
+                names[names.Length - 1] =
+                        names[names.Length - 1].Substring(0, names[names.Length - 1].Length - 4);
             }
             var path = GetPath("Git", names[names.Length - 2], names[names.Length - 1]);
             Directory.CreateDirectory(Path.GetDirectoryName(path));
